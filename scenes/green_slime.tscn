@@ -50,7 +50,8 @@ script = ExtResource("1_wufuo")
 sprite_frames = SubResource("SpriteFrames_m3nbr")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.503779
+frame = 1
+frame_progress = 0.934783
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(0, 5)
