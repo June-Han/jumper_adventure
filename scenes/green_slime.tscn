@@ -1,8 +1,24 @@
-[gd_scene load_steps=10 format=3 uid="uid://b2672fx1c0pvn"]
+[gd_scene load_steps=14 format=3 uid="uid://b2672fx1c0pvn"]
 
 [ext_resource type="Texture2D" uid="uid://btprcwsimxcdx" path="res://assets/sprites/slime_green.png" id="1_v51uv"]
 [ext_resource type="Script" path="res://scripts/green_slime.gd" id="1_wufuo"]
 [ext_resource type="PackedScene" uid="uid://b3nowi0xgdepl" path="res://scenes/kill_zone.tscn" id="2_pfmv8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u84gt"]
+atlas = ExtResource("1_v51uv")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8ny4"]
+atlas = ExtResource("1_v51uv")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc1l4"]
+atlas = ExtResource("1_v51uv")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t32n3"]
+atlas = ExtResource("1_v51uv")
+region = Rect2(72, 48, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gqb71"]
 atlas = ExtResource("1_v51uv")
@@ -22,6 +38,23 @@ region = Rect2(72, 24, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m3nbr"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u84gt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8ny4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc1l4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t32n3")
+}],
+"loop": true,
+"name": &"attacked",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gqb71")
@@ -48,10 +81,9 @@ script = ExtResource("1_wufuo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_m3nbr")
-animation = &"idle"
+animation = &"attacked"
 autoplay = "idle"
-frame = 1
-frame_progress = 0.934783
+frame_progress = 0.548962
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(0, 5)

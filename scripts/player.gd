@@ -32,11 +32,13 @@ func _physics_process(delta):
 		#Play Animation
 		if direction == 0:
 			# When the user press the down or s button
-			if Input.is_action_just_pressed("squat_down"):
-				animated_sprite.play("squat")
+			if Input.is_action_just_pressed("crouch_down"):
+				animated_sprite.play("crouch")
 			# If the user holds the down or the s button
-			elif Input.is_action_pressed("squat_down"):
-				animated_sprite.play("squat_hold")
+			elif Input.is_action_pressed("crouch_down"):
+				animated_sprite.play("crouch_hold")
+			elif Input.is_action_pressed("attack1") or Input.is_action_just_pressed("attack1"):
+				animated_sprite.play("attack1")
 			else:
 				animated_sprite.play("idle")
 		else:
