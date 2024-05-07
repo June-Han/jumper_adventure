@@ -7,11 +7,11 @@ Sprites and assets are CC0 resources
 
 
 ## Controls
-Movement: Arrow keys or asdw
-
-Jump: Spacebar
-
-Attack: F
+- Movement: Arrow keys or ASDW alphabet keys
+- Arrow keys (Press <- or -> for moving left or right, press down arrow for crouching)
+- ASDW keys (Press a or w for moving left or right, press down s for crouching) 
+- Jump: Spacebar
+- Attack: F
 
 
 
