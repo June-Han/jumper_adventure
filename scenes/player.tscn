@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://oiku624ctjnl"]
+[gd_scene load_steps=51 format=3 uid="uid://oiku624ctjnl"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_rthw6"]
 [ext_resource type="Texture2D" uid="uid://cgon26s6di2bm" path="res://assets/sprites/adventurer-v1.5-Sheet.png" id="1_yvrr0"]
@@ -344,49 +344,17 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_erbj3"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wqkr5"]
 radius = 8.0
+height = 22.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2cd41"]
 radius = 8.0
 height = 32.0
 
-[sub_resource type="Animation" id="Animation_lxvj2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape2D:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_6e27x"]
-resource_name = "attack_area"
-length = 1.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape2D:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_f5yy1"]
-_data = {
-"RESET": SubResource("Animation_lxvj2"),
-"attack_area": SubResource("Animation_6e27x")
-}
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_erbj3"]
+radius = 8.0
+height = 28.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -398,22 +366,26 @@ position = Vector2(1, -18)
 sprite_frames = SubResource("SpriteFrames_jk048")
 animation = &"attack1"
 autoplay = "idle"
-frame = 10
-frame_progress = 0.340416
+frame_progress = 0.621866
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -15)
-shape = SubResource("CapsuleShape2D_erbj3")
+[node name="CrouchCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -11)
+shape = SubResource("CapsuleShape2D_wqkr5")
 
-[node name="Area2D" type="Area2D" parent="."]
-visible = false
-collision_mask = 4
+[node name="AttackArea" type="Area2D" parent="." groups=["Sword"]]
+collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2DLeft" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(-16, -16)
+shape = SubResource("CapsuleShape2D_2cd41")
+
+[node name="CollisionShape2DRight" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(16, -16)
 shape = SubResource("CapsuleShape2D_2cd41")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
-libraries = {
-"": SubResource("AnimationLibrary_f5yy1")
-}
+[node name="IdleArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IdleArea"]
+position = Vector2(0, -14)
+shape = SubResource("CapsuleShape2D_erbj3")

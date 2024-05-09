@@ -93,6 +93,8 @@ target_position = Vector2(-9, 0)
 position = Vector2(0, 5)
 target_position = Vector2(9, 0)
 
+[node name="Timer" type="Timer" parent="."]
+
 [node name="kill_zone" parent="." instance=ExtResource("2_pfmv8")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kill_zone"]
