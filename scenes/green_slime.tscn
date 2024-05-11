@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b2672fx1c0pvn"]
+[gd_scene load_steps=18 format=3 uid="uid://b2672fx1c0pvn"]
 
 [ext_resource type="Texture2D" uid="uid://btprcwsimxcdx" path="res://assets/sprites/slime_green.png" id="1_v51uv"]
 [ext_resource type="Script" path="res://scripts/green_slime.gd" id="1_wufuo"]
@@ -36,6 +36,22 @@ region = Rect2(48, 24, 24, 24)
 atlas = ExtResource("1_v51uv")
 region = Rect2(72, 24, 24, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_aiq57"]
+atlas = ExtResource("1_v51uv")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hd2d4"]
+atlas = ExtResource("1_v51uv")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4tui"]
+atlas = ExtResource("1_v51uv")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_607ut"]
+atlas = ExtResource("1_v51uv")
+region = Rect2(72, 0, 24, 24)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_m3nbr"]
 animations = [{
 "frames": [{
@@ -71,6 +87,23 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aiq57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hd2d4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4tui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_607ut")
+}],
+"loop": true,
+"name": &"respawn",
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7qq00"]
@@ -83,7 +116,8 @@ script = ExtResource("1_wufuo")
 sprite_frames = SubResource("SpriteFrames_m3nbr")
 animation = &"attacked"
 autoplay = "idle"
-frame_progress = 0.548962
+frame = 3
+frame_progress = 0.754515
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(0, 5)
@@ -99,5 +133,10 @@ target_position = Vector2(9, 0)
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_7qq00")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="damaged_enemy" from="kill_zone" to="." method="_on_kill_zone_damaged_enemy"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -24,7 +24,6 @@ func _on_timer_timeout():
 func _on_area_entered(area):
 	if area.is_in_group("Sword"):
 		damaged_enemy.emit("enemy is attacked!")
-		#animated_enemy.play("attacked")
 		queue_free() #Free the collisiona area for the kill zone
 
 
