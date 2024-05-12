@@ -14,8 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://b2672fx1c0pvn" path="res://scenes/green_slime.tscn" id="9_7saq1"]
 [ext_resource type="PackedScene" uid="uid://c8dg32rn3wiap" path="res://scenes/enemy_bat.tscn" id="10_1ol25"]
 [ext_resource type="FontFile" uid="uid://nqx3wecpq242" path="res://assets/fonts/PixelOperator8.ttf" id="11_6ua45"]
-[ext_resource type="PackedScene" uid="uid://dcw7mj3sy73um" path="res://scenes/trap_cube.tscn" id="13_63su4"]
-[ext_resource type="PackedScene" uid="uid://bxbqc6hnbe2cu" path="res://scenes/enemy_bat_up_down.tscn" id="14_7l0br"]
+[ext_resource type="PackedScene" uid="uid://dcw7mj3sy73um" path="res://scenes/TrapCube.tscn" id="13_63su4"]
+[ext_resource type="PackedScene" uid="uid://bxbqc6hnbe2cu" path="res://scenes/EnemyBatUpDown.tscn" id="14_7l0br"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mscnm"]
 texture = ExtResource("1_kh3no")

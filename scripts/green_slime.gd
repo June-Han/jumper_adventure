@@ -43,8 +43,7 @@ func _process(delta):
 		print("Enemy name is " + str(enemy_name))
 		#Emitting some signals
 		emit_signal("killed_enemy", enemy_name, enemy_pos)
-		print("Emit Killed Enemy Done")
-		
+		print("Emitting Signal Done")
 
 #Connect the damaged_enemy signal from the kill_zone node to the function in this scene (on_killed_zone_damaged_enemy)
 #Already connected from the node Inspector UI, hence this function is not necessary 

@@ -17,6 +17,11 @@ func _process(delta):
 	if animated_sprite.animation == "attacked":
 		await get_tree().create_timer(0.4).timeout #For the attacked animation
 		queue_free() #Monster disappear
+		
+		#Will print out the respective positions for each enemy node the kill_zone is attached to.
+		print("Global position of enemy bat from kill_zone" + str(enemy_pos)) 
+		#Print out enemy name
+		print("Enemy name is " + str(enemy_name))
 		killed_enemy.emit(enemy_name, enemy_pos)
 
 
