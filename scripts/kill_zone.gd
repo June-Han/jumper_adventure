@@ -23,7 +23,10 @@ func _on_timer_timeout():
 #area is the area input from the player
 func _on_area_entered(area):
 	if area.is_in_group("Sword"):
+		#Emit signal method 1
 		damaged_enemy.emit("enemy is attacked!")
+		#Emit signal method 2 (Method 3 is by code, in green_slime script)
+		#emit_signal("killed_enemy",enemy_pos, enemy_name)
 		queue_free() #Free the collisiona area for the kill zone
 
 

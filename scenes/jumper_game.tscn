@@ -1,5 +1,6 @@
-[gd_scene load_steps=36 format=3 uid="uid://dc7wnchh2ig8v"]
+[gd_scene load_steps=37 format=3 uid="uid://dc7wnchh2ig8v"]
 
+[ext_resource type="Script" path="res://scripts/jumper_game.gd" id="1_8kd4n"]
 [ext_resource type="Texture2D" uid="uid://cl7dy28mx8xfw" path="res://assets/sprites/tilemap-backgrounds.png" id="1_kh3no"]
 [ext_resource type="PackedScene" uid="uid://oiku624ctjnl" path="res://scenes/player.tscn" id="1_nnk6x"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_okr0l"]
@@ -634,6 +635,7 @@ _data = {
 }
 
 [node name="JumperGame" type="Node2D"]
+script = ExtResource("1_8kd4n")
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -917,3 +919,11 @@ theme_override_fonts/font = ExtResource("2_qtkx8")
 theme_override_font_sizes/font_size = 16
 text = "Goal!"
 horizontal_alignment = 1
+
+[connection signal="killed_enemy" from="Enemies/green_slime" to="." method="_on_killed_enemy"]
+[connection signal="killed_enemy" from="Enemies/enemy_bat" to="." method="_on_killed_enemy"]
+[connection signal="killed_enemy" from="Enemies/enemy_bat2" to="." method="_on_killed_enemy"]
+[connection signal="killed_enemy" from="Enemies/TrapCube" to="." method="_on_killed_enemy"]
+[connection signal="killed_enemy" from="Enemies/TrapCube2" to="." method="_on_killed_enemy"]
+[connection signal="killed_enemy" from="Enemies/EnemyBatUpDown" to="." method="_on_killed_enemy"]
+[connection signal="killed_enemy" from="Enemies/EnemyBatUpDown2" to="." method="_on_killed_enemy"]
