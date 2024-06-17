@@ -1,15 +1,8 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
+@onready var prev_stage_pos = 0
+@onready var current_scene = "jumper_game"
 
 func _on_killed_enemy(enemy_name, enemy_pos):
 	print("Let's respawn some enemies")
@@ -32,3 +25,14 @@ func _on_killed_enemy(enemy_name, enemy_pos):
 	#outside of object need to be connected by code outside of the object before adding it as child
 	new_enemy.killed_enemy.connect(_on_killed_enemy) #Connecting the killed_enemy signal within the instantiated object to this function (Only this signal is not instantiated)
 	add_child(new_enemy)
+
+
+func _on_transition_scene(player_pos):
+	print(player_pos)
+	prev_stage_pos = player_pos
+	if current_scene == "jumper_game":
+		get_tree().change_scene_to_file("res://scenes/jumper_stage_2.tscn")
+		current_scene = "jumper_stage_2"
+	# print(get_tree().get_current_scene()) #JumperGame:<Node2D#136818198380>
+	# print(get_tree().get_current_scene().name) #JumperGame
+	# print(get_node(".").name) #JumperGame

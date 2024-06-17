@@ -356,7 +356,7 @@ height = 32.0
 radius = 8.0
 height = 28.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_rthw6")
 
@@ -364,9 +364,8 @@ script = ExtResource("1_rthw6")
 z_index = 1
 position = Vector2(1, -18)
 sprite_frames = SubResource("SpriteFrames_jk048")
-animation = &"attack1"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.621866
 
 [node name="CrouchCollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -11)
